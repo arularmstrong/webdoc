@@ -1,5 +1,4 @@
-import nltk
-nltk.download('popular')
+
 from docx import Document
 from docx.shared import Inches
 import re
