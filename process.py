@@ -208,7 +208,6 @@ def searchdoc(search_query):
            image_file = open("im.png", "wb")
            image_file.write(par._blob)
            image_file.close()
-           image_file.save("im.png")
            doc_out.add_picture("im.png",width=Inches(4.25))
 
     # copy paragraph content only
