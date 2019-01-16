@@ -1,7 +1,13 @@
 import process
 import os
 import nltk
-nltk.download('popular')
+
+try:
+	nltk.data.find('tokenizers/punkt')
+except LookupError:
+	nltk.download('punkt')
+	nltk.download('stopwords')
+	
 from flask_cors import CORS, cross_origin
 from flask import Flask, flash, request, redirect, url_for, send_from_directory, Response, jsonify, json, send_file,session
 from werkzeug.utils import secure_filename
