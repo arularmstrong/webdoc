@@ -1,7 +1,5 @@
 import process
 import os
-import pythoncom
-import win32com.client
 from flask_cors import CORS, cross_origin
 from flask import Flask, flash, request, redirect, url_for, send_from_directory, Response, jsonify, json, send_file,session
 from werkzeug.utils import secure_filename
@@ -17,14 +15,7 @@ app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
 
 
-def convert():
-    file_path= os.getcwd() + "\\uploads\\load.doc"
-    pythoncom.CoInitialize()
-    word = win32com.client.Dispatch("Word.application")
-    docx_file = '{0}{1}'.format(os.getcwd() + "\\uploads\\load.doc", 'x')
-    wordDoc = word.Documents.Open(file_path, False, False, False)
-    wordDoc.SaveAs2(docx_file, FileFormat = 16)
-    wordDoc.Close()
+
 
 def root_dir():  
     return os.path.abspath(os.path.dirname(__file__))
@@ -73,9 +64,8 @@ def upload_file():
             flash('No selected file')
             return redirect(request.url)
         if file and allowed_file(file.filename):
-            filename = "load.doc"
+            filename = "load.docx"
             file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
-            convert()
             return "uploaded successfully"
 			
 if __name__ == '__main__':

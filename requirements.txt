@@ -1,7 +1,6 @@
 Flask
 gunicorn
 werkzeug
-pypiwin32
 nltk
 python-docx
 Pillow
