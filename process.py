@@ -204,11 +204,7 @@ def searchdoc(search_query):
            else:
             doc_out.add_paragraph(paragraph)
         
-        for par in section['picture']:
-           image_file = open("im.png", "wb")
-           image_file.write(par._blob)
-           image_file.close()
-           doc_out.add_picture("im.png",width=Inches(4.25))
+        
 
     # copy paragraph content only
 
