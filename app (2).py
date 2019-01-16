@@ -15,8 +15,6 @@ CORS(app)
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
 
-
-
 def convert():
     file_path= os.getcwd() + "\\uploads\\load.doc"
     pythoncom.CoInitialize()
@@ -77,6 +75,3 @@ def upload_file():
             file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
             convert()
             return "uploaded successfully"
-			
-if __name__ == '__main__':
-    app.run(debug=True, use_reloader=True)
