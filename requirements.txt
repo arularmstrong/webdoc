@@ -1,6 +1,5 @@
 Flask
 gunicorn
-pythoncom
 werkzeug
 pywin32
 nltk
